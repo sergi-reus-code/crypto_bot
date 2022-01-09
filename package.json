@@ -1,0 +1,23 @@
+{
+  "name": "crypto_bot",
+  "version": "1.0.0",
+  "description": "Crypto Bot 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergi-reus-code/crypto_bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergi-reus-code/crypto_bot/issues"
+  },
+  "homepage": "https://github.com/sergi-reus-code/crypto_bot#readme",
+  "dependencies": {
+    "binance-api-node": "^0.11.28",
+    "dotenv": "^10.0.0"
+  }
+}
