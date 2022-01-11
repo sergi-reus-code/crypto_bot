@@ -6,7 +6,9 @@ const hora = readlineSync.question('Hora HHMM ? ');
 var moment = require('moment'); // require
 moment().format();
 
-var now = moment.utc(fecha+"T"+hora).valueOf();
+var now = moment(fecha+"T"+hora).valueOf();
 console.log(now);
 
 
+//19.57  ->  1641841020000 
+//             1641841020000
