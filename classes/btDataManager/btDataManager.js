@@ -164,9 +164,6 @@ module.exports = class backTesting {
     // Method
     getCandle() {
 
-
-
-
       const dumpCandle = {
         "eventType" : 'kline', 
         "eventTime" : `${this.index}`,
@@ -192,21 +189,43 @@ module.exports = class backTesting {
 
       return dumpCandle;
     }
+
+    getLastItems(long){
+
+      var temp_startTime = this.startTime
+      var temp_open = this.open
+      var temp_high = this.high
+      var temp_low = this.low
+      var temp_close = this.close
+      var temp_volume = this.volume
+      var temp_quoteVolume = this.quoteVolume
+      
+      
+      
+      temp_startTime.splice(0,temp_startTime.length-long)
+      temp_open.splice(0,temp_open.length-long)
+      temp_high.splice(0,temp_high.length-long)
+      temp_low.splice(0,temp_low.length-long)
+      temp_close.splice(0,temp_close.length-long)
+      temp_volume.splice(0,temp_volume.length-long)
+      temp_quoteVolume.splice(0,temp_quoteVolume.length-long)
+          
   
+
+      var arrayToSend = [temp_startTime,temp_open,temp_high,temp_low,temp_close,temp_volume,temp_quoteVolume]
+
+      return arrayToSend
+
+
+
+    }  
+
+
+
+
+
+
 
   }
 
 
-  
-  
-  this.starts 
-  this.ends 
-  this.startTime = []
-  this.open = []
-  this.high = []
-  this.low = []
-  this.close = []
-  this.volume = []
-  this.quoteVolume = []
-  this.syncro = false
-  this.index = 0
