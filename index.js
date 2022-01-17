@@ -58,10 +58,6 @@ async function initLive() {
       var res = straIn.pushCandle(candle)
       var resEP = straIn.checkEP()
 
-
-
-
-
       //----------------------------------------------------------
 
     }
@@ -69,8 +65,6 @@ async function initLive() {
   })
    
 }
-
-
 
 async function initBackTesting() {
 
@@ -80,13 +74,10 @@ async function initBackTesting() {
   if (resp) {
   
     const candle = btDataM.getCandle()
+    
     //---------------------------------------------------------
     var res = straIn.pushCandle(candle)
     var resEP = straIn.checkEP()
-
-
-
-    
 
     //----------------------------------------------------------
   }else{
@@ -158,7 +149,7 @@ switch (program) {
   case "bt":
     console.log("Starting program in Backtesting Mode \n");
     const resp = btDataM.init(symbol,"1m",starts,ends)
-    setInterval(initBackTesting,1000)
+    setInterval(initBackTesting,100)
     break;
 
   case "live":

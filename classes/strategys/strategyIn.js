@@ -99,17 +99,24 @@ module.exports = class strategyIn {
 
   async checkEP (){
 
-    const psar = indicators.getPSAR(1,0.02,0.2)
+    const psar = indicators.getPSAR(2,0.02,0.2)
     const precio = this.close[this.close.length-1];
 
-    if (psar>precio) {
-      console.log("arriba");
+    
+
+
+    if (psar[1]>precio) {
+      const psarA = psar[1] - (psar[0] - psar[1])  
+      console.log("arriba" + psarA);
+
+
+
     }else{
-      console.log("abajo");
+      //console.log("abajo");
     }
 
-    console.log();
-    console.log(psar);
+    //console.log(precio);
+    //console.log(psar[1]);
 
   }
 
