@@ -16,15 +16,12 @@ async function mainLive(){
         symbol: `${symbol}`,
         shortPeriod : "1m",
         longPeriod : "15m",
-        starts : 20210101,
-        ends : 20220121 }).init())
+        starts : 20210121,
+        ends : 20220122 }).init())
         
     });
     
 }
-
-
-
 
 
 async function mainBT(){
@@ -51,8 +48,8 @@ async function mainBT(){
     
 }
 
-//mainBT()
-mainLive()
+mainBT()
+//mainLive()
 
 
 

@@ -73,29 +73,26 @@ module.exports = class runner {
 
         for (let i = 200; i < this.dataObject.startTime.length; i++) {
             
-            /**
-             * Bucle principal
-             */
+            var candle = {
+                
+                    symbol: this.symbol,
+                    startTime: this.dataObject.startTime[i],
+                    open: this.dataObject.open[i],
+                    high: this.dataObject.high[i],
+                    low: this.dataObject.low[i],
+                    close: this.dataObject.close[i],
+                    volume: this.dataObject.volume[i],
+                    quoteVolume: this.dataObject.quoteVolume[i],
+                
+              }
 
-            //check if exist order
-            const existOrder = false
+            //this.currentCandle = this.dataObject.startTime[i]
 
-            if (existOrder == true) {
-                //Hay orden
+ 
+            //format candle como si fuera live
 
+            this.botLogic(candle);
 
-            } else {
-                //No hay orden
-                const data200 = this.dataObject.getLast200Candles()
-                this.entryPoint = await this.strategyObjectIn.checkStrategyIn(data200)
-
-            }
-
-
-        
-        
-
-      
         }
    }
 
@@ -103,60 +100,45 @@ module.exports = class runner {
 
         client.ws.candles(this.symbol,this.shortPeriod,(candle) =>{
 
-            /**
-             * Bucle principal
-             */
-
-             const existOrder = false
-
-             if (existOrder == true) {
-                 //Hay orden
- 
- 
-             } else {
-                 //No hay orden
-                 const data200 = this.dataObject.getLast200Candles()
-                 this.entryPoint = await this.strategyObjectIn.checkStrategyIn(data200)
- 
-             }
-
-
-
-
-
+            this.botLogic(candle);
             
             if(candle.isFinal==true){
-
                 this.dataObject.update(candle)
-      
             }
-
-
 
         })
 
     }
 
 
-    async checkEP(entryPoint, candle){
+async botLogic(currentCandle){
 
-            //if tatatatat
+            /**
+             * Bucle principal 
+             */
+
+            console.log(currentCandle);
+
+            //check if exist order
+            //const existOrder = false
+            //const data200 = this.dataObject.getLast200Candles()
+
+/*
+            if (existOrder == true) {
+                //Hay orden
+                this.existPoint = await this.strategyObjectOut.checkStrategyIn(data200)
+
+            } else {
+                //No hay orden
+                this.entryPoint = await this.strategyObjectIn.checkStrategyIn(data200)
+
+            }
 
 
 
+*/
 
-            //do nothing
-
-
-
-
-            //create Order
-
-
-
-
-    }
-
+}
 
 
 

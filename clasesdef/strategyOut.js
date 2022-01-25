@@ -1,7 +1,11 @@
-module.exports = class strategyOut {
+const StrategyMaster = require('./StrategyMaster')
+
+
+module.exports = class strategyOut extends StrategyMaster {
   
     // Constructor
     constructor() {
+      super()
 
       
 

@@ -9,7 +9,7 @@ const indicatorsManager = require('./indicators/indicators')
 const indicators = new indicatorsManager();
 
 
-module.exports = class StrategyManager {
+module.exports = class StrategyMaster {
   
   // Constructor
   constructor() {

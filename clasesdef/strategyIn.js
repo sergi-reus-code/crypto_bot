@@ -5,14 +5,17 @@ const client = Binance({
     apiSecret: process.env.APYSECRET
 });
 
+const StrategyMaster = require('./StrategyMaster')
+
 const indicatorsManager = require('./indicators/indicators')
 const indicators = new indicatorsManager();
 
 
-module.exports = class strategyIn extends StrategyManager {
+module.exports = class strategyIn extends StrategyMaster {
   
   // Constructor
   constructor() {
+    super()
 
   }
     
