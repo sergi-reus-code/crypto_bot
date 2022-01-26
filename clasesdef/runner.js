@@ -119,7 +119,7 @@ async botLogic(currentCandle){
              * Bucle principal -> Llega una candle......
              */
 
-            console.log(currentCandle);
+            //console.log(currentCandle);
 
             //check if exist order
             //const existOrder = false

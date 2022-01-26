@@ -7,7 +7,7 @@ const runners = []
 
 async function mainLive(){
 
-    const symbols = await utils.getMostVolatileSymbols(1)
+    const symbols = await utils.getMostVolatileSymbols(3)
     console.log(symbols);
 
     symbols.forEach(symbol => {
@@ -48,8 +48,8 @@ async function mainBT(){
     
 }
 
-//mainBT()
-mainLive()
+mainBT()
+//mainLive()
 
 
 
