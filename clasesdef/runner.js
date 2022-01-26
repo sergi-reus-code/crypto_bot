@@ -1,10 +1,15 @@
-const DataManagerBT = require ('./DataManagerBT')
-const DataManagerLive = require ('./DataManagerLive')
-const StrategyIn = require ('./strategyIn')
-const StrategyOut = require ('./strategyOut')
+const DataManagerBT = require ('./data/DataManagerBT')
+const DataManagerLive = require ('./data/DataManagerLive')
+const StrategyIn = require ('./strategy/strategyIn')
+const StrategyOut = require ('./strategy/strategyOut')
+const Account = require ('./money/MoneyManager')
+const OrderBuy = require ('./orders/OrdersBuy')
+const OrderSell = require ('./orders/OrdersSell')
+
 //const client = require ('../config/configBinance')
 
 const Binance = require('binance-api-node').default
+const MoneyManager = require('./money/MoneyManager')
 
 const client = Binance({
   apiKey: process.env.APYKEY,
@@ -42,9 +47,9 @@ module.exports = class runner {
  
         this.strategyObjectIn = new StrategyIn()
         this.strategyObjectOut = new StrategyOut()
-        //this.accountObject
-        //this.orderObject
-
+        this.moneyObject = new MoneyManager()
+        this.orderBuyObject = new OrderBuy()
+        this.orderBuyObject = new OrderSell()
       
 
 
