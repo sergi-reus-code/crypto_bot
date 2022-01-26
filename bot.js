@@ -48,8 +48,8 @@ async function mainBT(){
     
 }
 
-mainBT()
-//mainLive()
+//mainBT()
+mainLive()
 
 
 

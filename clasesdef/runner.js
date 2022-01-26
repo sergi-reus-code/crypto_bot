@@ -86,11 +86,6 @@ module.exports = class runner {
                 
               }
 
-            //this.currentCandle = this.dataObject.startTime[i]
-
- 
-            //format candle como si fuera live
-
             this.botLogic(candle);
 
         }
@@ -100,12 +95,14 @@ module.exports = class runner {
 
         client.ws.candles(this.symbol,this.shortPeriod,(candle) =>{
 
-            this.botLogic(candle);
-            
             if(candle.isFinal==true){
+                
                 this.dataObject.update(candle)
-            }
-
+                
+            } 
+            
+            this.botLogic(candle);
+        
         })
 
     }
@@ -114,7 +111,7 @@ module.exports = class runner {
 async botLogic(currentCandle){
 
             /**
-             * Bucle principal 
+             * Bucle principal -> Llega una candle......
              */
 
             console.log(currentCandle);
