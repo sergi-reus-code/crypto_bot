@@ -19,6 +19,16 @@ module.exports = class DataManager {
     this.volume = []
     this.quoteVolume = []
 
+    this.lstartTime = []
+    this.lopen = []
+    this.lhigh = []
+    this.llow = []
+    this.lclose = []
+    this.lvolume = []
+    this.lquoteVolume = []
+
+
+
     this.dataReady = false
       
 

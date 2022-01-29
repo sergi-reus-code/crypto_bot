@@ -15,7 +15,7 @@ async function mainLive(){
         runners.push(new runner({mode:"Live", 
         symbol: `${symbol}`,
         shortPeriod : "1m",
-        longPeriod : "15m",
+        longPeriod : 15,
         starts : 20210121,
         ends : 20220122 }).init())
         
@@ -34,22 +34,17 @@ async function mainBT(){
         runners.push(new runner({mode:"BT", 
         symbol: `${symbol}`,
         shortPeriod : "1m",
-        longPeriod : "15m",
+        longPeriod : 15,
         starts : 20220121,
         ends : 20220122 }).init())
         
     });
-    
-    
-    
-
-    
-    
-    
+        
 }
 
-//mainBT()
-mainLive()
+
+mainBT()
+//mainLive()
 
 
 

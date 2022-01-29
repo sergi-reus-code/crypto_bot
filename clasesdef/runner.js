@@ -2,14 +2,14 @@ const DataManagerBT = require ('./data/DataManagerBT')
 const DataManagerLive = require ('./data/DataManagerLive')
 const StrategyIn = require ('./strategy/strategyIn')
 const StrategyOut = require ('./strategy/strategyOut')
-const Account = require ('./money/MoneyManager')
+const MoneyManager = require ('./money/MoneyManager')
 const OrderBuy = require ('./orders/OrdersBuy')
 const OrderSell = require ('./orders/OrdersSell')
 
 //const client = require ('../config/configBinance')
 
 const Binance = require('binance-api-node').default
-const MoneyManager = require('./money/MoneyManager')
+
 
 const client = Binance({
   apiKey: process.env.APYKEY,
@@ -20,9 +20,6 @@ async function delay(ms) {
     // return await for better async stack trace support in case of errors.
     return await new Promise(resolve => setTimeout(resolve, ms));
   }
-
-
-
 
 
 
@@ -119,7 +116,7 @@ async botLogic(currentCandle){
              * Bucle principal -> Llega una candle......
              */
 
-            console.log(currentCandle);
+            //console.log(currentCandle);
 
             //check if exist order
             //const existOrder = false
