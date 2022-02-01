@@ -135,12 +135,12 @@ module.exports = class DataManagerBT extends DataManager {
     }
 
 
-    this.sincroData()
+    this.sincroDataShort()
 
   }
 
 
-  async sincroData(){
+  async sincroDataShort(){
 
 
     for (let i = this.startsMs; i < this.endsMs; i = i+86400000) {    //86.400.000 ms que tiene 1 dia
@@ -215,12 +215,43 @@ module.exports = class DataManagerBT extends DataManager {
 
     }
 
-    this.dataReady = true
-
+    
+    this.sincroDataLong()
+    
 
   }
 
 
 
   
+
+
+
+
+async sincroDataLong(){
+
+  console.log(this.startTime.length);
+  console.log(this.startTime[this.startTime.length-1]);
+      
+
+  const dateObject = new Date(Number(this.startTime[this.startTime.length-75]))
+
+const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
+
+console.log(humanDateFormat);
+console.log(dateObject.getMinutes());
+
+
+
+
+
+  this.dataReady = true
+
+  
+
+}
+
+
+
+
 }

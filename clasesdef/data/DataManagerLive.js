@@ -15,7 +15,7 @@ module.exports = class DataManagerLive extends DataManager {
   }
 
   async init() {
-    console.log("sincronizando symbolo.....");
+    console.log("sincronizando symbolo.....Short");
 
     var candlesOptions = {
       symbol: `${this.symbol}`,
@@ -35,7 +35,26 @@ module.exports = class DataManagerLive extends DataManager {
       this.quoteVolume.push(Number(cc.quoteVolume));
     });
 
+    var candlesOptions = {
+      symbol: `${this.symbol}`,
+      limit: 200,
+      interval: `${this.longPeriod}m`,
+    };
+
+    var data = await client.candles(candlesOptions);
+
+    data.forEach((cc) => {
+      this.lstartTime.push(Number(cc.openTime));
+      this.lopen.push(Number(cc.open));
+      this.lhigh.push(Number(cc.high));
+      this.llow.push(Number(cc.low));
+      this.lclose.push(Number(cc.close));
+      this.lvolume.push(Number(cc.volume));
+      this.lquoteVolume.push(Number(cc.quoteVolume));
+    });
+
     this.dataReady = true;
+
   }
 
   update(cc) {
