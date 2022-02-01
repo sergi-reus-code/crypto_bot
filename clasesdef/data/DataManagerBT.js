@@ -232,17 +232,20 @@ async sincroDataLong(){
 
   console.log(this.startTime.length);
   console.log(this.startTime[this.startTime.length-1]);
-      
+  
+  /*
+  this.startTime.forEach(element => {
+    console.log(element);
+  });
+  */
 
-  const dateObject = new Date(Number(this.startTime[this.startTime.length-75]))
+  const dateObject = new Date(Number(this.startTime[this.startTime.length-15]))
 
-const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
+  const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
 
-console.log(humanDateFormat);
-console.log(dateObject.getMinutes());
-
-
-
+  console.log(humanDateFormat);
+  console.log(dateObject.getMinutes());
+  console.log((this.startTime[this.startTime.length-15]));
 
 
   this.dataReady = true
