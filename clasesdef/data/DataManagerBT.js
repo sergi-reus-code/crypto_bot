@@ -230,15 +230,43 @@ module.exports = class DataManagerBT extends DataManager {
 
 async sincroDataLong(){
 
-  console.log(this.startTime.length);
-  console.log(this.startTime[this.startTime.length-1]);
-  
-  /*
-  this.startTime.forEach(element => {
-    console.log(element);
-  });
-  */
+  var divisor = this.longPeriod*60*1000
 
+  console.log(divisor);
+  let startss = 0
+
+  for (let ends = 0; ends < this.startTime.length; ends++) {
+    
+    var result = this.startTime[ends] % divisor;
+    
+
+    if (result === 0 && ends > 0) {
+
+      
+
+      console.log(result + " " + startss + " " + ends);
+    
+      startss = ends;
+      
+      splicedArray = 
+      //splice de array i pasarlo a update longterm
+
+
+
+
+    }
+
+
+
+    
+
+
+
+    
+  }
+
+
+/*
   const dateObject = new Date(Number(this.startTime[this.startTime.length-15]))
 
   const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
@@ -246,7 +274,7 @@ async sincroDataLong(){
   console.log(humanDateFormat);
   console.log(dateObject.getMinutes());
   console.log((this.startTime[this.startTime.length-15]));
-
+*/
 
   this.dataReady = true
 

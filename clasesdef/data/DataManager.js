@@ -39,6 +39,14 @@ module.exports = class DataManager {
  
   }
 
+  async updateLong() {
+ 
+  }
+
+
+
+
+
 
   // Method
   getLast200Candles() {
