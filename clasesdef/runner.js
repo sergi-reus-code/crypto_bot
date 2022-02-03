@@ -99,8 +99,23 @@ module.exports = class runner {
 
             if(candle.isFinal==true){
                 
+                //update short candle
                 this.dataObject.update(candle)
                 
+                //update long candle
+                var divisor = this.longPeriod*60*1000
+                var result = candle.startTime % divisor;
+                if (result === 0 ) {   
+                    //this.dataObject.update(candle)
+                    console.log("pepepepepepepe");         
+
+                }    
+
+
+
+
+
+
             } 
             
             this.botLogic(candle);

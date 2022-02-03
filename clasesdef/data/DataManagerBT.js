@@ -232,7 +232,6 @@ async sincroDataLong(){
 
   var divisor = this.longPeriod*60*1000
 
-  console.log(divisor);
   let starts = 0
 
   for (let ends = 0; ends < this.startTime.length; ends++) {
@@ -241,7 +240,7 @@ async sincroDataLong(){
 
     if (result === 0 && ends > 0) {
 
-      console.log(result + " " + starts + " " + ends);
+      //console.log(result + " " + starts + " " + ends);
     
       const sa_startTime = this.startTime.slice(starts,ends)
       const sa_open = this.open.slice(starts,ends)
@@ -253,7 +252,7 @@ async sincroDataLong(){
       
       starts = ends;
 
-
+      this.calcAndUpdateLongArray(sa_startTime,sa_open,sa_high,sa_low,sa_close,sa_volume,sa_quoteVolume)
 
 
 
@@ -278,28 +277,36 @@ async sincroDataLong(){
     
   }
 
-
-/*
-  const dateObject = new Date(Number(this.startTime[this.startTime.length-15]))
-
-  const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
-
-  console.log(humanDateFormat);
-  console.log(dateObject.getMinutes());
-  console.log((this.startTime[this.startTime.length-15]));
-*/
-
   this.dataReady = true
-
-  
 
 }
 
 
-async calcLong(){
+async calcAndUpdateLongArray(st, open , high, low, close, volume, quantity ){
 
+this.lstartTime.push(Number(st[0]));
 
+this.lopen.push(Number(open[0]));
 
+high.sort(function(a, b){return b-a});
+this.lhigh.push(Number(high[0]));
+
+low.sort(function(a, b){return a-b});
+this.llow.push(Number(low[0]));
+
+this.lclose.push(Number(close[close.length-1]));
+
+var totalVolume = 0
+volume.forEach(v => {
+  totalVolume = totalVolume + v
+});
+this.lvolume.push(Number(totalVolume));
+
+var totalQuantity = 0
+quantity.forEach(q => {
+  totalQuantity = totalQuantity + q
+});
+this.lquoteVolume.push(Number(totalQuantity));
 
 }
 
