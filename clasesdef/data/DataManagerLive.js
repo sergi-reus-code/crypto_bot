@@ -75,6 +75,42 @@ module.exports = class DataManagerLive extends DataManager {
     this.quoteVolume.push(Number(cc.quoteVolume));
   }
 
+  updateLong(cc) {
+
+    //coger los ultimos, hay que calcular los ultimos n array... es el mismo que en BT
+
+
+
+
+
+
+
+
+
+
+
+
+
+    this.lstartTime.shift();
+    this.lopen.shift();
+    this.lhigh.shift();
+    this.llow.shift();
+    this.lclose.shift();
+    this.lvolume.shift();
+    this.lquoteVolume.shift();
+
+    this.lstartTime.push(Number(cc.openTime));
+    this.lopen.push(Number(cc.open));
+    this.lhigh.push(Number(cc.high));
+    this.llow.push(Number(cc.low));
+    this.lclose.push(Number(cc.close));
+    this.lvolume.push(Number(cc.volume));
+    this.lquoteVolume.push(Number(cc.quoteVolume));
+  }
+
+
+
+
   // Getter
   get getLastCandles() {
     //return [this.calcArea(),0];

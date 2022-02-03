@@ -106,15 +106,8 @@ module.exports = class runner {
                 var divisor = this.longPeriod*60*1000
                 var result = candle.startTime % divisor;
                 if (result === 0 ) {   
-                    //this.dataObject.update(candle)
-                    console.log("pepepepepepepe");         
-
+                    this.dataObject.updateLong(candle)
                 }    
-
-
-
-
-
 
             } 
             
@@ -131,7 +124,7 @@ async botLogic(currentCandle){
              * Bucle principal -> Llega una candle......
              */
 
-            //console.log(currentCandle);
+            console.log(currentCandle);
 
             //check if exist order
             //const existOrder = false
