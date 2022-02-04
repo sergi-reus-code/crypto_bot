@@ -73,7 +73,10 @@ module.exports = class runner {
 
     async runnerBT(){
 
-        for (let i = 200; i < this.dataObject.startTime.length; i++) {
+        var inicio = this.longPeriod * 5
+
+
+        for (let i = inicio; i < this.dataObject.startTime.length; i++) {
             
             var candle = {
                 
@@ -124,7 +127,17 @@ async botLogic(currentCandle){
              * Bucle principal -> Llega una candle......
              */
 
-            console.log(currentCandle);
+            var divisor = this.longPeriod*60*1000
+
+            var result = currentCandle.startTime % divisor;
+           
+            if (result === 0 ) {
+
+                //actualizar ultima candela de long period
+                console.log(currentCandle.startTime);
+
+            }
+
 
             //check if exist order
             //const existOrder = false
