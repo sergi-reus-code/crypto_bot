@@ -15,7 +15,7 @@ async function mainLive(){
         runners.push(new runner({mode:"Live", 
         symbol: `${symbol}`,
         shortPeriod : "1m",
-        longPeriod : 30,
+        longPeriod : 5,
         starts : 20210121,
         ends : 20220122 }).init())
         
@@ -26,7 +26,7 @@ async function mainLive(){
 
 async function mainBT(){
 
-    const symbols = await utils.getMostVolatileSymbols(1)
+    const symbols = await utils.getMostVolatileSymbols(15)
     console.log(symbols);
 
     symbols.forEach(symbol => {
@@ -34,7 +34,7 @@ async function mainBT(){
         runners.push(new runner({mode:"BT", 
         symbol: `${symbol}`,
         shortPeriod : "1m",
-        longPeriod : 30,
+        longPeriod : 5,
         starts : 20220121,
         ends : 20220122 }).init())
         
@@ -45,6 +45,7 @@ async function mainBT(){
 
 mainBT()
 //mainLive()
+
 
 
 

@@ -10,7 +10,6 @@ module.exports = class DataManager {
     this.starts = starts
     this.ends = ends
 
-
     this.startTime = []
     this.open = []
     this.high = []
@@ -27,32 +26,17 @@ module.exports = class DataManager {
     this.lvolume = []
     this.lquoteVolume = []
 
-
-
     this.dataReady = false
-      
-
 
   }
     
-  async init() {
+  async updateLongCandle(candle) {
  
+    console.log("en master" + candle);
+
   }
 
-  async updateLong() {
- 
-  }
 
-
-
-
-
-
-  // Method
-  getLast200Candles() {
-    
-    return "toma candles pecadorrrr";
-  }
 
 
   isDataReady(){

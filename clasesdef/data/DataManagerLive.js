@@ -9,13 +9,13 @@ const client = Binance({
 
 
 module.exports = class DataManagerLive extends DataManager {
-  // Constructor
+  
   constructor(symbol, shortPeriod, longPeriod, starts, ends) {
     super(symbol, shortPeriod, longPeriod, starts, ends);
   }
 
   async init() {
-    console.log("sincronizando symbolo.....Short");
+    console.log(`Sincronizando short data para ${this.symbol}`);
 
     var candlesOptions = {
       symbol: `${this.symbol}`,
@@ -35,10 +35,12 @@ module.exports = class DataManagerLive extends DataManager {
       this.quoteVolume.push(Number(cc.quoteVolume));
     });
 
+    console.log(`Sincronizando long data para ${this.symbol}`);
+
     var candlesOptions = {
       symbol: `${this.symbol}`,
       limit: 200,
-      interval: `${this.longPeriod}m`,
+      interval: `${this.longPeriod}m`,   //OJO..... PASAR A H si es 60
     };
 
     var data = await client.candles(candlesOptions);
@@ -57,7 +59,8 @@ module.exports = class DataManagerLive extends DataManager {
 
   }
 
-  update(cc) {
+  
+  async updateArrays(candle) {
     this.startTime.shift();
     this.open.shift();
     this.high.shift();
@@ -66,30 +69,32 @@ module.exports = class DataManagerLive extends DataManager {
     this.volume.shift();
     this.quoteVolume.shift();
 
-    this.startTime.push(Number(cc.openTime));
-    this.open.push(Number(cc.open));
-    this.high.push(Number(cc.high));
-    this.low.push(Number(cc.low));
-    this.close.push(Number(cc.close));
-    this.volume.push(Number(cc.volume));
-    this.quoteVolume.push(Number(cc.quoteVolume));
+    this.startTime.push(Number(candle.openTime));
+    this.open.push(Number(candle.open));
+    this.high.push(Number(candle.high));
+    this.low.push(Number(candle.low));
+    this.close.push(Number(candle.close));
+    this.volume.push(Number(candle.volume));
+    this.quoteVolume.push(Number(candle.quoteVolume));
+
+    var divisor = this.longPeriod*60*1000
+
+    var result = candle.startTime % divisor;
+   
+    if (result === 0 ) {
+
+        //actualizar ultima candela de long period
+        this.updateLongCandle(candle)
+
+    }
+
   }
 
+
+  /*
   updateLong(cc) {
 
     //coger los ultimos, hay que calcular los ultimos n array... es el mismo que en BT
-
-
-
-
-
-
-
-
-
-
-
-
 
     this.lstartTime.shift();
     this.lopen.shift();
@@ -108,9 +113,9 @@ module.exports = class DataManagerLive extends DataManager {
     this.lquoteVolume.push(Number(cc.quoteVolume));
   }
 
+*/
 
-
-
+/*
   // Getter
   get getLastCandles() {
     //return [this.calcArea(),0];
@@ -125,4 +130,8 @@ module.exports = class DataManagerLive extends DataManager {
   static calcArea(width, height) {
     return "pepe";
   }
+
+
+*/
+
 };

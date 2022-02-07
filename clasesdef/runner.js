@@ -19,7 +19,7 @@ const client = Binance({
 async function delay(ms) {
     // return await for better async stack trace support in case of errors.
     return await new Promise(resolve => setTimeout(resolve, ms));
-  }
+}
 
 
 
@@ -48,8 +48,6 @@ module.exports = class runner {
         this.orderBuyObject = new OrderBuy()
         this.orderBuyObject = new OrderSell()
       
-
-
     }
 
     async init(){
@@ -73,10 +71,7 @@ module.exports = class runner {
 
     async runnerBT(){
 
-        var inicio = this.longPeriod * 5
-
-
-        for (let i = inicio; i < this.dataObject.startTime.length; i++) {
+        for (let i = 0; i < this.dataObject.startTime.length; i++) {
             
             var candle = {
                 
@@ -88,8 +83,19 @@ module.exports = class runner {
                     close: this.dataObject.close[i],
                     volume: this.dataObject.volume[i],
                     quoteVolume: this.dataObject.quoteVolume[i],
-                
-              }
+
+            }
+
+            var divisor = this.longPeriod*60*1000
+
+            var result = candle.startTime % divisor;
+             
+            if (result === 0 ) {
+          
+                //actualizar ultima candela de long period
+                //await this.updateLongCandle(candle)
+          
+            }  
 
             this.botLogic(candle);
 
@@ -102,16 +108,9 @@ module.exports = class runner {
 
             if(candle.isFinal==true){
                 
-                //update short candle
-                this.dataObject.update(candle)
+                //update short candle & long candle
+                this.dataObject.updateArrays(candle)
                 
-                //update long candle
-                var divisor = this.longPeriod*60*1000
-                var result = candle.startTime % divisor;
-                if (result === 0 ) {   
-                    this.dataObject.updateLong(candle)
-                }    
-
             } 
             
             this.botLogic(candle);
@@ -121,12 +120,12 @@ module.exports = class runner {
     }
 
 
-async botLogic(currentCandle){
+    async botLogic(currentCandle){
 
             /**
              * Bucle principal -> Llega una candle......
              */
-
+/*
             var divisor = this.longPeriod*60*1000
 
             var result = currentCandle.startTime % divisor;
@@ -135,9 +134,10 @@ async botLogic(currentCandle){
 
                 //actualizar ultima candela de long period
                 console.log(currentCandle.startTime);
+                this.dataObject.updateLong(candle)
 
             }
-
+*/
 
             //check if exist order
             //const existOrder = false
@@ -153,16 +153,8 @@ async botLogic(currentCandle){
                 this.entryPoint = await this.strategyObjectIn.checkStrategyIn(data200)
 
             }
-
-
-
 */
 
-}
-
-
-
-
-
+    }
 
 }

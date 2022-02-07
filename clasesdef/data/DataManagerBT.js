@@ -21,10 +21,6 @@ module.exports = class DataManagerBT extends DataManager {
       super(symbol, shortPeriod, longPeriod, starts, ends)
       this.startsMs 
       this.endsMs  
-
-    
-      
-      
   }
     
   async init() {
@@ -215,9 +211,7 @@ module.exports = class DataManagerBT extends DataManager {
 
     }
 
-    
     this.sincroDataLong()
-    
 
   }
 
