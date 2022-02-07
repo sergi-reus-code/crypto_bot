@@ -211,9 +211,12 @@ module.exports = class DataManagerBT extends DataManager {
 
     }
 
-    this.sincroDataLong()
+    //this.sincroDataLong()
+    this.dataReady = true
 
   }
+
+/*
 
 
 async sincroDataLong(){
@@ -245,10 +248,13 @@ async sincroDataLong(){
     
   }
 
-  this.dataReady = true
+  
 
 }
+*/
 
+
+/*
 
 async sincroCandleLong(){
 
@@ -283,6 +289,7 @@ async sincroCandleLong(){
 
 }
 
+*/
 
 
 
@@ -296,8 +303,7 @@ async sincroCandleLong(){
 
 
 
-
-
+/*
 
 async calcAndUpdateLongArray(st, open , high, low, close, volume, quantity ){
 
@@ -329,7 +335,7 @@ this.lquoteVolume.push(Number(totalQuantity));
 
 
 
-
+*/
 
 
 

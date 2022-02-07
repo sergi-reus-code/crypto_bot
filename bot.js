@@ -26,7 +26,7 @@ async function mainLive(){
 
 async function mainBT(){
 
-    const symbols = await utils.getMostVolatileSymbols(15)
+    const symbols = await utils.getMostVolatileSymbols(1)
     console.log(symbols);
 
     symbols.forEach(symbol => {

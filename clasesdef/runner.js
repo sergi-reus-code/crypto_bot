@@ -86,17 +86,7 @@ module.exports = class runner {
 
             }
 
-            var divisor = this.longPeriod*60*1000
-
-            var result = candle.startTime % divisor;
-             
-            if (result === 0 ) {
-          
-                //actualizar ultima candela de long period
-                //await this.updateLongCandle(candle)
-          
-            }  
-
+            await this.dataObject.updateArrays("BT", candle)
             this.botLogic(candle);
 
         }
@@ -109,7 +99,7 @@ module.exports = class runner {
             if(candle.isFinal==true){
                 
                 //update short candle & long candle
-                this.dataObject.updateArrays(candle)
+                await this.dataObject.updateArrays("Live", candle)
                 
             } 
             

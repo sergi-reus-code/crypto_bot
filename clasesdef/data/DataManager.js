@@ -30,7 +30,7 @@ module.exports = class DataManager {
 
   }
     
-  async updateLongCandle(candle) {
+  async updateArrays(candle) {
  
     console.log("en master" + candle);
 
