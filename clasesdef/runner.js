@@ -110,6 +110,10 @@ module.exports = class runner {
     }
 
 
+    newMethod() {
+        return this
+    }
+
     async botLogic(currentCandle){
 
             /**

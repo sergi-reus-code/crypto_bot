@@ -30,8 +30,25 @@ module.exports = class DataManager {
 
   }
     
-  async updateArrays(candle) {
+  async updateArrays(mode,candle) {
  
+    if (mode=="BT"){
+
+
+
+
+
+
+    } else {
+
+
+
+
+
+      
+    }
+
+
     console.log("en master" + candle);
 
   }
