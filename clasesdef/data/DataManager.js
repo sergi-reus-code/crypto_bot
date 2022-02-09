@@ -48,8 +48,7 @@ module.exports = class DataManager {
       
     }
 
-
-    console.log("en master" + candle);
+   
 
   }
 

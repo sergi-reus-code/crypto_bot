@@ -100,6 +100,9 @@ module.exports = class runner {
                 
                 //update short candle & long candle
                 await this.dataObject.updateArrays("Live", candle)
+
+
+
                 
             } 
             
@@ -110,10 +113,7 @@ module.exports = class runner {
     }
 
 
-    newMethod() {
-        return this
-    }
-
+ 
     async botLogic(currentCandle){
 
             /**
