@@ -32,23 +32,27 @@ module.exports = class DataManager {
     
   async updateArrays(mode,candle) {
  
-    if (mode=="BT"){
 
+    console.log("epepep");
 
+    switch (mode) {
+      case "BT":
+        console.log("en bt");
+        break;
 
-
-
-
-    } else {
-
-
-
-
-
-      
+        case "Live":
+          console.log("en live");
+          break;
+    
+      default:
+        console.log("error");
+      //error
+        break;
     }
 
-   
+    
+
+   return "ok"
 
   }
 

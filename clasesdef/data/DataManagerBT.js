@@ -211,7 +211,7 @@ module.exports = class DataManagerBT extends DataManager {
 
     }
 
-    this.sincroDataLong()
+    this.sincroCandleLong()
     //this.dataReady = true
 
   }

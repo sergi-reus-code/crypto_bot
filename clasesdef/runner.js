@@ -86,7 +86,7 @@ module.exports = class runner {
 
             }
 
-            //await this.dataObject.updateArrays("BT", candle)
+            const res = await this.dataObject.updateArrays("BT", candle)
 
             //TODO COMPROVAR QUE LA DATA ESTA BIEN
 
@@ -101,10 +101,8 @@ module.exports = class runner {
 
             if(candle.isFinal==true){
                 
-                //update short candle & long candle
-                await this.dataObject.updateArrays("Live", candle)
-
-                //if blblblblblbbla update log array de la misma forma que BT
+                
+                const res = this.dataObject.updateArrays("Live", candle)
 
                 
             } 

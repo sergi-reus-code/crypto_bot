@@ -92,7 +92,7 @@ module.exports = class DataManagerLive extends DataManager {
 
 
   /*
-  updateLong(cc) {
+  updateLongC(cc) {
 
     //coger los ultimos, hay que calcular los ultimos n array... es el mismo que en BT
 
