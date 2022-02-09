@@ -86,7 +86,10 @@ module.exports = class runner {
 
             }
 
-            await this.dataObject.updateArrays("BT", candle)
+            //await this.dataObject.updateArrays("BT", candle)
+
+            //TODO COMPROVAR QUE LA DATA ESTA BIEN
+
             this.botLogic(candle);
 
         }
@@ -101,7 +104,7 @@ module.exports = class runner {
                 //update short candle & long candle
                 await this.dataObject.updateArrays("Live", candle)
 
-
+                //if blblblblblbbla update log array de la misma forma que BT
 
                 
             } 

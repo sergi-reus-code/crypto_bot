@@ -211,50 +211,11 @@ module.exports = class DataManagerBT extends DataManager {
 
     }
 
-    //this.sincroDataLong()
-    this.dataReady = true
+    this.sincroDataLong()
+    //this.dataReady = true
 
   }
 
-/*
-
-
-async sincroDataLong(){
-
-  var divisor = this.longPeriod*60*1000
-
-  let starts = 0
-
-  for (let ends = 0; ends < this.startTime.length; ends++) {
-    
-    var result = this.startTime[ends] % divisor;
-
-    if (result === 0 && ends > 0) {
-
-      const sa_startTime = this.startTime.slice(starts,ends)
-      const sa_open = this.open.slice(starts,ends)
-      const sa_high = this.high.slice(starts,ends)
-      const sa_low = this.low.slice(starts,ends)
-      const sa_close = this.close.slice(starts,ends)
-      const sa_volume = this.volume.slice(starts,ends)
-      const sa_quoteVolume = this.quoteVolume.slice(starts,ends)
-      
-      starts = ends;
-
-      this.calcAndUpdateLongArray(sa_startTime,sa_open,sa_high,sa_low,sa_close,sa_volume,sa_quoteVolume)
-
-
-    }
-    
-  }
-
-  
-
-}
-*/
-
-
-/*
 
 async sincroCandleLong(){
 
@@ -289,21 +250,7 @@ async sincroCandleLong(){
 
 }
 
-*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 
 async calcAndUpdateLongArray(st, open , high, low, close, volume, quantity ){
 
@@ -335,7 +282,7 @@ this.lquoteVolume.push(Number(totalQuantity));
 
 
 
-*/
+
 
 
 
